@@ -6,18 +6,32 @@ public class Main {
         int counter = 0;
 
         // Horizontal
-        for (String str : inputArray) {
-            if (str.contains("XMAS")) {
-                counter++;
-            }
-            if (str.contains("SAMX")) {
-                counter++;
+        for (int vertical = 0; vertical < inputArray.length; vertical++) {
+            for (int horizontal = 0; horizontal < inputArray[0].length()-3; horizontal++) {
+                if (inputArray[vertical].charAt(horizontal) == 'X') {
+                    if (inputArray[vertical].charAt(horizontal+1) == 'M') {
+                        if (inputArray[vertical].charAt(horizontal+2) == 'A') {
+                            if (inputArray[vertical].charAt(horizontal+3) == 'S') {
+                                counter++;
+                            }
+                        }
+                    }
+                }
+                if (inputArray[vertical].charAt(horizontal) == 'S') {
+                    if (inputArray[vertical].charAt(horizontal+1) == 'A') {
+                        if (inputArray[vertical].charAt(horizontal+2) == 'M') {
+                            if (inputArray[vertical].charAt(horizontal+3) == 'X') {
+                                counter++;
+                            }
+                        }
+                    }
+                }
             }
         }
 
         // Vertical
         for (int vertical = 0; vertical < inputArray.length-3 ; vertical++) {
-            for (int horizontal = 0; horizontal < inputArray.length; horizontal++) {
+            for (int horizontal = 0; horizontal < inputArray[0].length(); horizontal++) {
                 if (inputArray[vertical].charAt(horizontal) == 'X') {
                     if (inputArray[vertical+1].charAt(horizontal) == 'M') {
                         if (inputArray[vertical+2].charAt(horizontal) == 'A') {
